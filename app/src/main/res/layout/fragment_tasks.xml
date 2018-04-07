@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/grey_gred">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:textColor="@color/abyad"
+        android:text="finished tasks"
+        android:id="@+id/finished"
+        android:background="@color/green"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="0dp"
+        android:textColor="@color/abyad"
+        android:layout_weight="5"
+        android:id="@+id/unfinished"
+        android:background="@color/grey"
+        android:text="unfinished tasks"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerview"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"/>
+
+</LinearLayout>

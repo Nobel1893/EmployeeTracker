@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00a4ff</color>
+    <color name="colorPrimaryDark">#1976d2</color>
+    <color name="colorAccent">#0DA3D5</color>
+    <color name="questions_back">#f4f6f7</color>
+
+
+
+    <color name="ko7ly">#15305b</color>
+    <color name="ko7ly_5afef">#A015305b</color>
+    <color name="abyad">#FFFFFF</color>
+    <color name="a7mar">#d92122</color>
+
+    <color name="blue_btn_bg_color">#62C2D0</color>
+    <color name="blue_btn_bg_pressed_color">#31747D</color>
+
+
+    <color name="grey">#A8A8A8</color>
+    <color name="grey_5">#dedede</color>
+
+    <color name="nbety">#94152A</color>
+    <color name="labany">#6298E0</color>
+    <color name="aswed">#000</color>
+    <color name="azra2">#1C4D8F</color>
+    <color name="grey_t">#55ECECEC</color>
+    <color name="green">#409d19</color>
+    <color name="grey_2">#373737</color>
+    <color name="grey_3">#696969</color>
+    <color name="trkwaz">#17AFB0</color>
+    <color name="asfar">#ffff00</color>
+    <color name="grey_title">#f0efed</color>
+    <color name="grey_content">#f8f8f8</color>
+    <color name="samny_title">#efe3af</color>
+    <color name="samny_content">#fdf1bc</color>
+    <color name="greyee">#eeeeee</color>
+    <color name="greya4">#a4a4a4</color>
+    <color name="labanytitle">#245695</color>
+
+
+    <color name="light_black">#1a1a1a</color>
+    <color name="orange">#be8912</color>
+    <color name="light_grey">#f6f6f6</color>
+    <color name="drak_grey">#797676</color>
+    <color name="blue">#92c9f4</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="transparentnos">#5a9e9b9b</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">EmployeeTracker</string>
+    <string name="title_activity_login">Login</string>
+    <string name="login_hr">Login HR</string>
+    <string name="login_emp">Login Employee</string>
+    <string name="title_activity_login_employee">Login Employee</string>
+    <string name="Email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="loginnow">Login Now</string>
+    <string name="title_activity_login_hr">Login HR</string>
+    <string name="title_activity_hrhome">HRHome</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="add">Add</string>
+    <string name="dep_name">Department Name</string>
+    <string name="Emp_name">Employee name</string>
+    <string name="task_name">Task Name</string>
+    <string name="task_details">Task Details</string>
+    <string name="time">Specified Period</string>
+    <string name="start_date">start date</string>
+    <string name="end_date">End Date</string>
+    <string name="add_photo">Add photo</string>
+    <string name="FNumber">F-Number</string>
+    <string name="birth_date">Date of Birth</string>
+    <string name="hire_date">Date of Hire</string>
+    <string name="rank">Rank</string>
+    <string name="salary">Salary</string>
+    <string name="address">Address</string>
+    <string name="mobile">Mobile</string>
+    <string name="title_activity_add_task">AddTask</string>
+    <string name="title_activity_add_employee">AddEmployee</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading">Loading</string>
+    <string name="title_activity_emphome">Home</string>
+    <string name="title_activity_UpdateTask">update Task</string>
+</resources>
