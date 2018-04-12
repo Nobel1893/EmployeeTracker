@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.nobel.employeetracker.MyApplication;
 import com.nobel.employeetracker.R;
 
 import java.util.ArrayList;
@@ -23,6 +24,12 @@ public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.View
 
     private Listener deleteLisitner;
     private Listener editLisitner;
+
+    public void setTracklistener(Listener tracklistener) {
+        this.tracklistener = tracklistener;
+    }
+
+    private Listener tracklistener;
     private ArrayList items;
 
     public EmployeesAdapter(ArrayList items) {
@@ -46,6 +53,20 @@ public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.View
         name.setText(e.getName());
         final Button delete= cardView.findViewById(R.id.delete);
         final Button edit= cardView.findViewById(R.id.edit);
+        final Button track= cardView.findViewById(R.id.track);
+        if (MyApplication.HRemail!=null&&MyApplication.HRID!=null){
+            track.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (tracklistener != null) {
+                        tracklistener.onClick(position);
+                    }
+                }
+            });
+
+        }else {
+            track.setVisibility(View.GONE);
+        }
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

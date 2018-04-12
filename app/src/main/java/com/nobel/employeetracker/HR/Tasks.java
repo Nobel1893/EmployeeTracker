@@ -110,7 +110,7 @@ public class Tasks extends NobelFragment implements View.OnClickListener {
 
                 AddTask.task=tasks.get(position);
                 AddTask.isedit=true;
-                startActivity(new Intent(activity,AddTask.class).putExtra("title","Edit Task"));
+                startActivity(new Intent(activity,AddTask.class).putExtra("title","View Task"));
             }
         });
 
@@ -125,12 +125,18 @@ public class Tasks extends NobelFragment implements View.OnClickListener {
 
 
     public void getFinishedTasks(){
+        finished.setBackgroundColor(getResources().getColor(R.color.green));
+        unfinished.setBackgroundColor(getResources().getColor(R.color.grey));
+
         activity.GetLoadingDialogue();
         connector.getFinishedTasksForAdmin(callback);
 
     }
 
     public void getUnFinishedTasks(){
+        unfinished.setBackgroundColor(getResources().getColor(R.color.green));
+        finished.setBackgroundColor(getResources().getColor(R.color.grey));
+
         activity.GetLoadingDialogue();
         connector.getUnFinishedTasksForAdmin(callback);
     }

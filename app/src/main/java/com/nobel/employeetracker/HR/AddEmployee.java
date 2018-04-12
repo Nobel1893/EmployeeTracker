@@ -62,6 +62,7 @@ public class AddEmployee extends NobelActivity implements View.OnClickListener {
         ShowHomeasUpEnabled();
         initView();
         if (isedit&&employee!=null) {
+            employee.setOld_pic(employee.getPic());
             fNum.setText(employee.getId_employee());
             empName.setText(employee.getName());
             birth.setText(employee.getB_date());
@@ -115,7 +116,9 @@ public class AddEmployee extends NobelActivity implements View.OnClickListener {
         semail=Validate(email);
         saddress=Validate(address);
         smobile=Validate(mobile);
+        if (!isedit)
         spassword=Validate(password);
+      else spassword =password.getText().toString();
        if (sfNum==null||sempName==null||sbirth==null||shire==null||srank==null||ssalary==null||sdepName==null
                ||semail==null||saddress==null||smobile==null||spassword==null)
            return false;
@@ -248,6 +251,7 @@ public class AddEmployee extends NobelActivity implements View.OnClickListener {
                 e.setPassword(spassword);
                 e.setSection(sdepName);
                 GetLoadingDialogue();
+
                 HashMap<String, DataPart> imgs = new HashMap<>();
                 if (idimage!=null)
                     imgs.put("pic", new DataPart("IDImg." + idimage.getExtention(),idimage.getContent(), idimage.getMimiType()));
@@ -255,6 +259,22 @@ public class AddEmployee extends NobelActivity implements View.OnClickListener {
 
             }
         }
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        HRHome.SectionId=2;
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        employee=null;
+        isedit=false;
+
     }
 
     ServiceCallback callback=new ServiceCallback() {
@@ -265,6 +285,8 @@ public class AddEmployee extends NobelActivity implements View.OnClickListener {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                     sweetAlertDialog.dismissWithAnimation();
+                    isedit=false;
+                    employee=null;
                     finish();
                 }
             });

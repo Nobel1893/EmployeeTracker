@@ -5,9 +5,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.nobel.employeetracker.MyApplication;
 import com.nobel.employeetracker.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import Abstract.Employee;
 import Base.NobelActivity;
@@ -28,6 +31,7 @@ public class ViewProfile extends NobelActivity {
     protected EditText password;
     protected Button add;
     protected Button edit;
+    protected ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,9 @@ public class ViewProfile extends NobelActivity {
             add.setVisibility(View.GONE);
             edit.setVisibility(View.GONE);
             addPhoto.setVisibility(View.GONE);
+            if(employee.getPic()!=null){
+              ImageLoader.getInstance().displayImage(MyApplication.Images+employee.getPic(),image);
+            }
         }
     }
     public static Employee employee;
@@ -70,6 +77,7 @@ public class ViewProfile extends NobelActivity {
         password = (EditText) findViewById(R.id.password);
         add = (Button) findViewById(R.id.add);
         edit = (Button) findViewById(R.id.edit);
+        image =  findViewById(R.id.image);
         findViewById(R.id.pass_layout).setVisibility(View.GONE);
         findViewById(R.id.dep_layout).setVisibility(View.GONE);
 

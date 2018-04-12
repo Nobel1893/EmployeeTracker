@@ -96,14 +96,8 @@ HashMap<String, DataPart>imgs;
             if (ppassword.equals("")){
                 password.setError("required");
             }else {
-                activity.ShowDialogeConfirmation("HR", "please take a photo to login", "ok",
-                        new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                StartPickerAction(1,1);
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        });
+                Login();
+
             }
         }
     }
@@ -141,7 +135,7 @@ HashMap<String, DataPart>imgs;
                         img = arr.get(0);
                         if (PrepareImage()) {
                             Log.e("image ", "loaded");
-                            Login();
+                            SendLoginUpdates();
                         }
                     }else {
                         ShowMessage("no images choosen");
@@ -208,13 +202,24 @@ HashMap<String, DataPart>imgs;
                 connector.getEmployeeData(MyApplication.EMPID, new ServiceCallback() {
                     @Override
                     public void onSuccess(Response Response) {
+                        activity.HideLoadingDialogue();
                         MyApplication.LoggedInEmployee= JsonParser.fromJsonString(Response.getData().toString(), Employee.class);
+                        MyApplication.trackGPS=new TrackGPS(activity);
+                        StartTrackingService();
+                        activity.ShowDialogeConfirmation("HR", "please take a photo to login", "ok",
+                                new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        StartPickerAction(1,1);
+                                        sweetAlertDialog.dismissWithAnimation();
+                                    }
+                                });
                     }
+
                 });
 
-                MyApplication.trackGPS=new TrackGPS(activity);
-                StartTrackingService();
-                SendLoginUpdates();
+
+
 
 
             }
@@ -245,6 +250,7 @@ HashMap<String, DataPart>imgs;
 
             Log.e("location","Current date => " + date);
 
+            GetLoadingDialogue();
             connector.SendLoginUpdates(MyApplication.EMPID,date, MyApplication.trackGPS.getLatitude(),
                     MyApplication.trackGPS.getLongitude(),
                     imgs ,   new ServiceCallback() {
@@ -254,6 +260,7 @@ HashMap<String, DataPart>imgs;
                             Log.e("location login",MyApplication.trackGPS.getLatitude()+"  "+ MyApplication.trackGPS.getLongitude());
                             Log.e("location login","sent success");
                             startActivity(new Intent(activity,EMPHome.class));
+                            finish();
                         }
 
                         @Override

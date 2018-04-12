@@ -46,6 +46,12 @@ public class AddTask extends NobelActivity implements View.OnClickListener {
             add.setVisibility(View.GONE);
             edit.setVisibility(View.GONE);
 
+            taskName.setEnabled(false);
+            taskDetails.setEnabled(false);
+            time.setEnabled(false);
+            startDate.setEnabled(false);
+            endDate.setEnabled(false);
+
             if (MyApplication.employees!=null)
             for(int i=0;i<MyApplication.employees.size();i++){
                 if (MyApplication.employees.get(i).getID().equals(task.getId_employee())){
@@ -55,6 +61,7 @@ public class AddTask extends NobelActivity implements View.OnClickListener {
                 }
 
             }
+            empName.setEnabled(false);
 
         }
 
@@ -76,6 +83,8 @@ public class AddTask extends NobelActivity implements View.OnClickListener {
    String stime;
    String sstartDate;
    String sendDate;
+
+
 
     public boolean Validate(){
 
@@ -100,6 +109,8 @@ public class AddTask extends NobelActivity implements View.OnClickListener {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                     sweetAlertDialog.dismissWithAnimation();
+                    task=null;
+                    isedit=false;
                     finish();
                 }
             });
@@ -113,6 +124,20 @@ public class AddTask extends NobelActivity implements View.OnClickListener {
             return super.onFail(response);
         }
     };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        HRHome.SectionId=4;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        isedit=false;
+        task=null;
+
+    }
 
     public static Task task;
     public static boolean isedit=false;

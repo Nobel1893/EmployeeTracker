@@ -65,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/task_name"
+                    android:textColor="@color/aswed"
                     android:inputType="text"
                     android:backgroundTint="@color/transparent"/>
 
@@ -93,6 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/task_details"
+                    android:textColor="@color/aswed"
                     android:maxLines="5"
                     android:lines="5"
                     android:inputType="text|textMultiLine"
@@ -122,6 +124,7 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:textColor="@color/aswed"
                     android:layout_height="wrap_content"
                     android:id="@+id/time"
                     android:inputType="number"
@@ -149,6 +152,7 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:textColor="@color/aswed"
                     android:layout_height="wrap_content"
                     android:id="@+id/start_date"
                     android:inputType="date"
@@ -177,6 +181,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/aswed"
                     android:id="@+id/end_date"
                     android:inputType="date"
                     android:backgroundTint="@color/transparent"/>

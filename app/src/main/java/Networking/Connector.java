@@ -178,9 +178,9 @@ public class Connector {
         params.put("salary",e.getSalary());
         params.put("rank",e.getRank());
         params.put("w_date",e.getW_date());
-        params.put("b_dat",e.getB_date());
+        params.put("b_date",e.getB_date());
         params.put("pic",e.getName());
-        // params.put("pic",password);
+         params.put("old_pic",e.getOld_pic());
         MultiPartRequest(APIURL + "update_emp", Connector.POST, params, headers,imgs, callback);
     }
     public void AddEmployee(Employee e,HashMap<String,DataPart> files, ServiceCallback callback) {
@@ -197,7 +197,7 @@ public class Connector {
         params.put("salary",e.getSalary());
         params.put("rank",e.getRank());
         params.put("w_date",e.getW_date());
-        params.put("b_dat",e.getB_date());
+        params.put("b_date",e.getB_date());
         params.put("pic",e.getName());
         // params.put("pic",password);
         MultiPartRequest(APIURL + "add_emp", Connector.POST, params, headers, files,callback);
@@ -277,6 +277,11 @@ public class Connector {
         Map<String, String> headers = new HashMap<>();
         SendRequest(APIURL + "showEmpData?id_employee="+id, Connector.GET, params, headers, callback);
     }
+    public void getEmployeeTrackingData(String id,String date,ServiceCallback callback) {
+        Map<String, String> params = new HashMap<>();
+        Map<String, String> headers = new HashMap<>();
+        SendRequest(APIURL + "showgoogleData?id_employee="+id+"&day_date="+date, Connector.GET, params, headers, callback);
+    }
 
     /////////////////////////////////////////////////////
     public void FinishTask(String id, ServiceCallback callback) {
@@ -297,6 +302,30 @@ public class Connector {
         params.put("day_date",date);
 
         SendRequest(APIURL + "add_google", Connector.POST, params, headers, callback);
+
+    }
+
+    public void updateDepartment(String id, String name, ServiceCallback callback) {
+        Map<String, String> params = new HashMap<>();
+        Map<String, String> headers = new HashMap<>();
+        params.put("id",id);
+        params.put("name",name);
+
+
+        SendRequest(APIURL + "update_section", Connector.POST, params, headers, callback);
+
+    }
+
+    public void updateAdmin(String hrid, String semail, String pass, ServiceCallback callback) {
+
+        Map<String, String> params = new HashMap<>();
+        Map<String, String> headers = new HashMap<>();
+        params.put("id",hrid);
+        params.put("email",semail);
+        params.put("password",pass);
+
+
+        SendRequest(APIURL + "update_admin", Connector.POST, params, headers, callback);
 
     }
 }

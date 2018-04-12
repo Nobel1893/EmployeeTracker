@@ -22,17 +22,18 @@
             android:layout_marginStart="12dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/login_top_ico"
                 android:id="@+id/image"
+                android:scaleType="fitXY"
                 android:background="@color/grey_title"/>
                 <Button
                     android:layout_width="150dp"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:background="@color/green"
-                    android:text="@string/add_photo"
+                    android:text="Select photo"
                     android:textColor="@color/abyad"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
@@ -333,7 +334,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/password"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:backgroundTint="@color/transparent"/>
 
             </RelativeLayout>

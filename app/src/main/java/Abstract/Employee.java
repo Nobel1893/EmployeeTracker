@@ -33,6 +33,15 @@ public class Employee {
     private String pic;
     private String w_date;
     private String b_date;
+    private String old_pic;
+
+    public String getOld_pic() {
+        return old_pic;
+    }
+
+    public void setOld_pic(String old_pic) {
+        this.old_pic = old_pic;
+    }
 
     public String getSection() {
         return section;

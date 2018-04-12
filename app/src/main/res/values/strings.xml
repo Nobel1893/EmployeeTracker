@@ -38,4 +38,5 @@
     <string name="loading">Loading</string>
     <string name="title_activity_emphome">Home</string>
     <string name="title_activity_UpdateTask">update Task</string>
+    <string name="title_activity_tracking_map">Map</string>
 </resources>

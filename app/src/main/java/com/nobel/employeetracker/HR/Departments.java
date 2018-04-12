@@ -1,8 +1,10 @@
 package com.nobel.employeetracker.HR;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.nobel.employeetracker.MyApplication;
 import com.nobel.employeetracker.R;
@@ -115,7 +118,7 @@ public class Departments extends NobelFragment implements View.OnClickListener {
         adapter.setEditLisitner(new DepartmentsAdapter.Listener() {
             @Override
             public void onClick(int position) {
-
+                ShowUpadateDialoge(departments.get(position).getID());
             }
         });
 
@@ -123,6 +126,66 @@ public class Departments extends NobelFragment implements View.OnClickListener {
         LinearLayoutManager layoutManager=new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false);
         recyclerview.setLayoutManager(layoutManager);
     }
+
+
+    public void ShowUpadateDialoge(final String id){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(activity);
+        alertDialog.setTitle("edit");
+        alertDialog.setMessage("Enter Department Name");
+
+        final EditText input = new EditText(activity);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input);
+//        alertDialog.setIcon(R.drawable.key);
+
+        alertDialog.setPositiveButton("edit",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        String nname = input.getText().toString();
+                        if (nname.equals("")){
+                            input.setError("required");
+                        }
+                        else {
+                            updateDepartment(id,nname);
+                           dialog.dismiss();
+                        }
+
+                    }
+                });
+
+        alertDialog.setNegativeButton("NO",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
+    }
+
+    public void updateDepartment(String id,String name){
+        activity.GetLoadingDialogue();
+
+        connector.updateDepartment(id,name,new ServiceCallback(){
+            @Override
+            public void onSuccess(Response Response) {
+                activity.HideLoadingDialogue();
+                getData();
+            }
+
+            @Override
+            public String onFail(Response response) {
+                activity.HideLoadingDialogue();
+                activity.ShowMessage(response.getMessage());
+                return super.onFail(response);
+            }
+        });
+
+    }
+
 
 
     public void getData(){

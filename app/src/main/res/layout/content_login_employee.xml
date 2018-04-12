@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/password"
-                android:text="123"
+                android:text="111"
                 android:inputType="textPassword"
                 android:backgroundTint="@color/transparent"/>
         </LinearLayout>

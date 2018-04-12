@@ -44,6 +44,12 @@ public class UpdateTask extends NobelActivity implements View.OnClickListener {
             add.setVisibility(View.GONE);
             edit.setVisibility(View.VISIBLE);
 
+            taskName.setEnabled(false);
+            taskDetails.setEnabled(false);
+            time.setEnabled(false);
+            startDate.setEnabled(false);
+            endDate.setEnabled(false);
+
         }
 
 
