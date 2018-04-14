@@ -102,12 +102,18 @@ public class Tasks extends NobelFragment implements View.OnClickListener {
 
 
     public void getFinishedTasks(){
+        finished.setBackgroundColor(getResources().getColor(R.color.green));
+        unfinished.setBackgroundColor(getResources().getColor(R.color.grey));
+
         activity.GetLoadingDialogue();
         connector.getFinishedTasksForEmployee(MyApplication.EMPID,callback);
 
     }
 
     public void getUnFinishedTasks(){
+        unfinished.setBackgroundColor(getResources().getColor(R.color.green));
+        finished.setBackgroundColor(getResources().getColor(R.color.grey));
+
         activity.GetLoadingDialogue();
         connector.getUnFinishedTasksForEmployee(MyApplication.EMPID,callback);
     }
